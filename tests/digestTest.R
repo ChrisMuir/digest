@@ -107,6 +107,17 @@ for (i in seq(along.with=crc32Input)) {
     cat(crc32, "\n")
 }
 
+crc32OutputRaw <-                       # same as previous three but reverse order. why?
+    c("c2 41 24 35",
+      "5f 3f 1a 17",
+      "72 01 f8 2e")
+for (i in seq(along.with=crc32Input)) {
+    crc32 <- capture.output(cat(digest(crc32Input[i], algo="crc32", serialize=FALSE, raw=TRUE)))
+    stopifnot(identical(crc32, crc32OutputRaw[i]))
+    cat(crc32, "\n")
+}
+
+
 ## one of the FIPS-
 sha1 <- digest("abc", algo="sha1", serialize=FALSE)
 stopifnot(identical(sha1, "a9993e364706816aba3e25717850c26c9cd0d89d"))

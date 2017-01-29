@@ -1,7 +1,16 @@
 2017-01-29  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION: Roll minor version and date
+
+	* src/digest.c (digest): Initial support for 'raw' crc32 hashes
+
 	* man/digest.Rd: Not that 'raw' is not supported for all hashing
 	algorithms
+
+	* tests/digestTest.R: Additional test for raw crc32 mode
+	* tests/digestTest.Rout.save: Updated output
+
+	* tests/hmacTest.Rout.save: Change one test as side effect crc32 change
 
 	* .travis.yml: Use https for curl download
 
