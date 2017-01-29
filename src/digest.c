@@ -114,12 +114,15 @@ SEXP digest(SEXP Txt, SEXP Algo, SEXP Length, SEXP Skip, SEXP Leave_raw, SEXP Se
     }
     case 3: {     /* crc32 case */
         unsigned long val, l;
+        output_length = 4;
         l = nChar;
 
         val  = digest_crc32(0L, 0, 0);
         val  = digest_crc32(val, (unsigned char*) txt, (unsigned) l);
+        memcpy(output, &val, 4);
 
-        sprintf(output, "%2.2x", (unsigned int) val);
+        if (!leaveRaw)
+            sprintf(output, "%2.2x", (unsigned int) val);
 
         break;
     }
