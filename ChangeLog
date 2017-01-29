@@ -1,3 +1,10 @@
+2017-01-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* man/digest.Rd: Not that 'raw' is not supported for all hashing
+	algorithms
+
+	* .travis.yml: Use https for curl download
+
 2017-01-26  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Release 0.6.12
